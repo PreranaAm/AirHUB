@@ -39,7 +39,7 @@ const MongoStore = require('connect-mongo');
 const store=MongoStore.create({
   mongoUrl: dbrul,
   crypto:{
-     secret: 'keyboard cat'
+     secret: process.env.SECRET_KEY
   },
   touchAfter:24*3600
 })
@@ -48,7 +48,7 @@ store.on("error",()=>{
 })
 app.use(session({
   store,
-  secret: 'keyboard cat',
+  secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: true,
   cookie: {expires:Date.now()*7*24*60*60*1000,
