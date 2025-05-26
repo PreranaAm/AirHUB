@@ -1,0 +1,78 @@
+<% layout('layout/boilerplate') -%>
+
+    <body>
+       <h3 class="mt-4"> Create a new Post</h3>
+        <form action="/users/new" method="post" class="mt-3 mx-4 needs-validation" novalidate enctype="multipart/form-data">
+            <div  class="mb-1 ">
+                <label for="title" class="form-label">Title</label>
+             <input type="text"  name="listing[title]" id="title" class="form-control" placeholder="Enter the title" value="Mark" required>
+             <div class="invalid-feedback">
+            Please chose the title
+            </div>
+            </div>
+             
+             <div class="mb-3 ">
+                <label for="description" class="form-label">Description</label>
+             <textarea name="listing[description]" id="" id="description" class="form-control" value="Mark" required></textarea>
+             <div class="invalid-feedback">
+              Please write a description
+            </div>
+             </div>
+
+             <div class="mb-3 ">
+                <label for="image" class="form-label">Upload the image</label>
+             <input type="file" name="listing[image]" id="image" class="form-control">
+             <div class="invalid-feedback">
+              Please write a description
+            </div>
+             </div>
+             <div class="mb-3 "  >
+        
+                <label for="price" class="form-label">Price</label>
+             <input type="text"  name="listing[price]" class="form-control" placeholder="price" value="Mark" required>
+             <div class="invalid-feedback">
+              Please choose a Price.
+            </div>
+             </div>
+            
+             <div class="row">
+                <div class="col-4 " >
+                    <label for="price" class="form-label">Location</label>
+                  <input type="text" class="form-control" name="listing[location]" placeholder="Karnataka" value="Mark" required>
+                  <div class="invalid-feedback">
+                    Please choose a Location
+                  </div>
+                </div>
+                <div class="col " >
+                    <label for="price" class="form-label">Country</label>
+                  <input type="text" class="form-control" name="listing[country]" placeholder="India" value="Mark" required>
+                  <div class="invalid-feedback">
+                    Please choose a Country
+                  </div>
+                </div>
+              </div>
+           
+            <button  class="btn btn-danger mt-4">Submit</button>
+        </form>
+    </body>
+<script>
+  (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+    </html>

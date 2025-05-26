@@ -1,0 +1,146 @@
+<% layout('layout/boilerplate') -%>
+<style>
+    #filters{
+        display: flex;
+        flex-wrap: wrap;
+       margin-left: 3.5rem;
+     align-items: center;
+    }
+    .filter{
+         margin-top:1rem ;
+        padding-right: 1rem;
+        margin-right: 1.5rem;
+       margin-bottom:0px ;
+        display: flex;
+        opacity: 0.7;
+          cursor: pointer;
+          text-align: center;
+    }
+    .filter p{
+         margin-bottom: 0px;
+    }
+    .filter:hover{
+        opacity: 1;
+      
+    }
+    .fa-solid{
+        align-self: center;
+        
+    }
+    .form-switch{
+        border: 2px solid black;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        margin-left: 2.5rem;
+        align-items: center;
+    }
+    
+    .form-check{
+        padding-right:0.5rem ;
+        padding-left: 0.5rem;
+    }
+    .rk{display: none;}
+</style>
+    <body>
+        <!-- <form action="/users/new" method="get">
+    <button>Create a post</button>
+   </form> -->
+    
+   
+       <div id="filters">
+         <div class="filter">
+            <div><i class="fa-solid fa-snowflake"></i>
+            <p>Artic</p>
+            </div>
+         </div>
+         <div class="filter">
+            <div><i class="fa-solid fa-fire"></i>
+            <p>Trending</p>
+            </div>
+         </div>
+         <div class="filter">
+            <div><i class="fa-solid fa-mountain-city"></i>
+            <p>Iconic Cities</p>
+            </div>
+         </div>
+         <div class="filter">
+            <div><i class="fa-solid fa-mountain"></i>
+            <p>Mountains</p>
+            </div>
+         </div>
+         <div class="filter">
+            <div><i class="fa-solid fa-bed"></i>
+            <p>Rooms</p>
+            </div>
+         </div>
+         <div class="filter">
+            <div><i class="fa-solid fa-sailboat"></i>
+            <p>Boats</p>
+            </div>
+         </div>
+         <div class="filter">
+            <div> <i class="fa-solid fa-tents"></i>
+           <p>Camping</p>
+           </div>
+         </div>
+         <div class="filter">
+          <div><i class="fa-solid fa-igloo"></i>
+          <p>Domes</p> 
+          </div> 
+         </div>
+         <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i>
+            <p>Castles</p></div>
+         </div>
+         <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i>
+            <p>Pools</p></div>
+         </div>
+           <div class="form-check form-switch form-check-reverse ">
+            <div class="form-check ">
+  <input class="form-check-input " type="checkbox" id="switchCheckReverse">
+  <label class="form-check-label" for="switchCheckReverse">Display total after taxes</label>
+  </div>
+</div>
+       </div>
+     
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 m-3">
+            <%for(let k of r) {%>
+                    <div class="list-card cols-8 mx-lg-auto mx-md-auto mx-sm-auto mb-4" style="width: 22rem;">
+                        <a href="/users/show/<%=k.id%>" style="text-decoration: none;color: black;">
+                        <img src="<%=k.image.url%>" class="card-img-top" alt="..." style="width: 22rem;height: 18rem;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b>
+                                    <%=k.title%>
+                                </b>
+                            </p>
+                            <p class="card-text">&#8377;<%=k.price.toLocaleString("en-IN")%>/night<i class="rk">+18% GST</i></p>
+                        </div>
+                    </a>
+                    </div>
+                
+                    <% }%>
+        </div>
+       
+    </body>
+<script>
+    let r=document.querySelector("input[type='checkbox']")
+    r.addEventListener("click",function(){
+        console.log("rk")
+        let r=document.querySelectorAll(".rk")
+        for(let i of r )
+    {
+if(i.style.display!='inline')
+    {
+         i.style.display="inline"
+    }
+    else{
+       
+        i.style.display="none"
+    }
+    }
+        
+    })
+</script>
+    </html>

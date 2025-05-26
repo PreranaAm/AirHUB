@@ -1,0 +1,49 @@
+body{
+    min-height: 100vh;
+}
+.navbar{
+    height: 4rem;
+    background-color: white;
+}
+.nav-link{
+    color: black;
+}
+.navbar-brand{
+    font-size: 2rem;
+    color:#fe242d
+}
+.social-liks{
+    color: black!important;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+}
+.nav-link:hover{
+color:rgba(128, 128, 128, 0.9)!important;
+}
+.footer{
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   border-top:0.5px solid black ;
+   background-color: rgba(128, 128, 128, 0.2);
+   
+   
+
+}
+.footer1{
+    position: sticky;
+   top: 120rem;
+}
+.rk{
+    text-decoration: "none";
+}
+.card-body{padding: 0!important;margin-bottom: 0!important ;}
+.card-text{margin-bottom: 0px!important;}
+.list-card{border: none;}
+.links{
+    width: 100%;
+    text-align: center;
+}
+.r{display: inline-block;}

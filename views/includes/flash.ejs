@@ -1,0 +1,19 @@
+
+
+    <%if(registor&&registor.length){%>
+        <div class="alert alert-danger alert-dismissible fade show mx-auto mx-3" role="alert">
+            <p><%=registor%></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+     
+    </div>
+    <%}%>
+
+    <%if(error&&error.length){%>
+        <div class="alert alert-danger alert-dismissible fade show mx-auto mx-3" role="alert">
+            <p><%=error%></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+     
+    </div>
+    <%}%>
