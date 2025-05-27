@@ -141,11 +141,7 @@ app.use((err,req,res,next)=>{
   res.status(status).render("error.ejs",{err})
  
 })
-app.post("/signup",()=>{
-  req.login("",(err)=>{
-    
-  })
-})
+
 app.listen(8080,()=>{
     console.log("conncet")
 })
