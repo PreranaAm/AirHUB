@@ -5,7 +5,7 @@ const app=express()
 if(process.env.NODE_ENV!="Production"){
 require('dotenv').config()
 }
-const dbrul=process.env.URL;
+
 console.log(process.env.SECRET_KEY)
 const multer  = require('multer')
 const {cloudinary,storage}=require("./cloudinary.js")
@@ -22,6 +22,7 @@ app.use(express.urlencoded({extended:true}))
 var methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 engine = require('ejs-mate')
+ const dbrul=process.env.URL;
 const wrapasync=require("./utils/wrapasync.js")
 const ExpressError = require("./utils/ExpressError.js")
 const {listschema,reviewschema}=require("./schema.js")
@@ -35,7 +36,6 @@ const passport=require("passport")
 const LocalStrategy=require("passport-local")
 const {isloggedin,savedirect,isOwner}=require("./middleware.js")
 main().catch(err => console.log(err));
-const MongoStore = require('connect-mongo');
 const store=MongoStore.create({
   mongoUrl: dbrul,
   crypto:{
@@ -43,11 +43,9 @@ const store=MongoStore.create({
   },
   touchAfter:24*3600
 })
-store.on("error",()=>{
-  console.log("error")
-})
+
 app.use(session({
-  store,
+ store,
   secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: true,
@@ -65,11 +63,11 @@ passport.deserializeUser(User.deserializeUser());
 
 var flash = require('connect-flash');
 app.use(flash());
+const MongoStore = require('connect-mongo');
 
 async function main() {
-  await mongoose.connect(dbrul);
-
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+//  await mongoose.connect('mongodb://127.0.0.1:27017/kr');
+await mongoose.connect(dbrul);
 }
 app.use((req,res,next)=>{
   res.locals.registor=req.flash("registor")
