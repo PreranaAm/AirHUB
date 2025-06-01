@@ -17,6 +17,8 @@ const list=require("./models/listing.js")
 const review=require("./models/reviews.js")
 app.use(express.static(path.join(__dirname,"/public")))
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
+
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 var methodOverride = require('method-override')
