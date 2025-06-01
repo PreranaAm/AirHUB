@@ -24,6 +24,7 @@ app.use(express.urlencoded({extended:true}))
 var methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 engine = require('ejs-mate')
+
  const dbrul=process.env.URL;
 const wrapasync=require("./utils/wrapasync.js")
 const ExpressError = require("./utils/ExpressError.js")
@@ -67,7 +68,7 @@ passport.deserializeUser(User.deserializeUser());
 
 var flash = require('connect-flash');
 app.use(flash());
-const MongoStore = require('connect-mongo');
+
 
 async function main() {
 //  await mongoose.connect('mongodb://127.0.0.1:27017/kr');
