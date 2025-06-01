@@ -43,7 +43,9 @@ const store=MongoStore.create({
   },
   touchAfter:24*3600
 })
-
+store.on("error",()=>{
+  console.log("error")
+})
 app.use(session({
  store,
   secret: process.env.SECRET_KEY,
